@@ -1,23 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-29T22:50:35 IST" name="Default suite" finished-at="2025-05-29T22:50:47 IST" duration-ms="11413">
+  <suite started-at="2025-06-09T09:48:22 IST" name="Default suite" finished-at="2025-06-09T09:49:05 IST" duration-ms="42150">
     <groups>
       <group name="smoke">
-        <method signature="LoginTest.loginTest()[pri:0, instance:com.ui.test.LoginTest@13e344d]" name="loginTest" class="com.ui.test.LoginTest"/>
+        <method signature="LoginTest.loginTest(com.ui.pojo.User)[pri:0, instance:com.ui.test.LoginTest@6892b3b6]" name="loginTest" class="com.ui.test.LoginTest"/>
       </group> <!-- smoke -->
       <group name="e2e">
-        <method signature="LoginTest.loginTest()[pri:0, instance:com.ui.test.LoginTest@13e344d]" name="loginTest" class="com.ui.test.LoginTest"/>
+        <method signature="LoginTest.loginTest(com.ui.pojo.User)[pri:0, instance:com.ui.test.LoginTest@6892b3b6]" name="loginTest" class="com.ui.test.LoginTest"/>
       </group> <!-- e2e -->
     </groups>
-    <test started-at="2025-05-29T22:50:35 IST" name="Default test" finished-at="2025-05-29T22:50:47 IST" duration-ms="11413">
+    <test started-at="2025-06-09T09:48:22 IST" name="Default test" finished-at="2025-06-09T09:49:05 IST" duration-ms="42150">
       <class name="com.ui.test.LoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.ui.test.LoginTest@13e344d]" started-at="2025-05-29T22:50:35 IST" name="setUp" description="Load the homepage of the website" finished-at="2025-05-29T22:50:43 IST" duration-ms="7887" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.ui.test.LoginTest@6892b3b6]" started-at="2025-06-09T09:48:23 IST" name="setUp" description="Load the homepage of the website" finished-at="2025-06-09T09:48:40 IST" duration-ms="17017" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest()[pri:0, instance:com.ui.test.LoginTest@13e344d]" started-at="2025-05-29T22:50:43 IST" name="loginTest" description="Verify user is able to login into the application" finished-at="2025-05-29T22:50:47 IST" duration-ms="3467" status="PASS">
+        <test-method signature="loginTest(com.ui.pojo.User)[pri:0, instance:com.ui.test.LoginTest@6892b3b6]" started-at="2025-06-09T09:48:40 IST" name="loginTest" description="Verify user is able to login into the application" data-provider="LoginTestExcelDataProvider" finished-at="2025-06-09T09:48:44 IST" duration-ms="3667" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[User [emailAddress=wofeb80381@leabro.com, password=Password]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.ui.test.LoginTest@6892b3b6]" started-at="2025-06-09T09:48:44 IST" name="setUp" description="Load the homepage of the website" finished-at="2025-06-09T09:49:00 IST" duration-ms="16204" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginTest(com.ui.pojo.User)[pri:0, instance:com.ui.test.LoginTest@6892b3b6]" started-at="2025-06-09T09:49:00 IST" name="loginTest" description="Verify user is able to login into the application" data-provider="LoginTestExcelDataProvider" finished-at="2025-06-09T09:49:05 IST" duration-ms="4270" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[User [emailAddress=tewiwi2746@eduhed.com, password=Password]]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [John Weber] but found [Carry Wilson]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [John Weber] but found [Carry Wilson]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at com.ui.test.LoginTest.loginTest(LoginTest.java:41)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
