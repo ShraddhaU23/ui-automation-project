@@ -1,14 +1,15 @@
 package com.ui.pages;
 
+import static com.constants.Env.QA;
+
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 import com.constants.Browser;
-import static com.constants.Env.*;
 import com.utility.BrowserUtility;
 import com.utility.JSONUtility;
 import com.utility.LoggerUtility;
-import com.utility.PropertiesUtil;
 
 public final class HomePage extends BrowserUtility {
 
@@ -16,10 +17,14 @@ public final class HomePage extends BrowserUtility {
 	private static final LoginPage LoginPage = null;
 	Logger logger = LoggerUtility.getLogger(this.getClass());
 
-	public HomePage(Browser browserName) {
-		super(browserName);
+	public HomePage(Browser browserName,boolean isHeadless) {
+		super(browserName,isHeadless);
 		goToWebsite(JSONUtility.readJSON(QA));
 		maximizeWindow();
+	}
+	public HomePage(WebDriver driver) {
+		super(driver);
+		goToWebsite(JSONUtility.readJSON(QA));
 	}
 
 	public LoginPage goToLoginPage() {
@@ -29,4 +34,7 @@ public final class HomePage extends BrowserUtility {
 		return loginPage;
 	}
 
+	public void quit() {
+		quit();
+	}
 }

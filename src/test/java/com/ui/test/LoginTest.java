@@ -13,40 +13,32 @@ import com.ui.pojo.User;
 import com.utility.LoggerUtility;
 
 @Listeners({ com.ui.listeners.TestListener.class })
-public class LoginTest {
+public class LoginTest extends TestBase {
 
-	HomePage homePage;
 	Logger logger = LoggerUtility.getLogger(this.getClass());
 
+	@Test(description = "Verify user is able to login into the application", groups = { "e2e",
+			"smoke" }, dataProviderClass = com.ui.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestdataProvider", retryAnalyzer = com.ui.listeners.MyRetryAnalyzer.class)
+	public void loginTest(User user) {
 
-	@BeforeMethod(description = "Load the homepage of the website")
-	public void setUp() {
-		logger.info("Loads the homepage of the website");;
-		homePage = new HomePage(CHROME);
+		String username = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
+				.getUserName();
+		Assert.assertEquals(username, "John Weber");
 	}
 
 	/*
 	 * @Test(description = "Verify user is able to login into the application",
 	 * groups = { "e2e", "smoke" }, dataProviderClass =
 	 * com.ui.dataproviders.LoginDataProvider.class, dataProvider =
-	 * "LoginTestdataProvider",retryAnalyzer=com.ui.listeners.MyRetryAnalyzer.class)
-	 * 
-	 * public void loginTest(User user) {
+	 * "LoginTestExcelDataProvider", retryAnalyzer =
+	 * com.ui.listeners.MyRetryAnalyzer.class) public void loginExcelTest(User user)
+	 * {
 	 * 
 	 * String username =
 	 * homePage.goToLoginPage().doLoginWith(user.getEmailAddress(),
 	 * user.getPassword()) .getUserName(); Assert.assertEquals(username,
-	 * "John Weber"); }
+	 * "John Weber");
+	 * 
+	 * }
 	 */
-
-	@Test(description = "Verify user is able to login into the application", groups = { "e2e",
-			"smoke" }, dataProviderClass = com.ui.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider", retryAnalyzer = com.ui.listeners.MyRetryAnalyzer.class)
-	public void loginExcelTest(User user) {
-
-		String username = homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword())
-				.getUserName();
-		Assert.assertEquals(username, "John Weber");
-
-	}
-
 }
