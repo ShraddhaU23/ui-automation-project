@@ -17,7 +17,7 @@ import com.ui.pojo.User;
 public class ExcelReaderUtility {
 
 	public static Iterator<User> readExcelFile(String fileName) {
-		File file = new File(System.getProperty("user.dir") + "\\testdata\\" +fileName);
+		File file = new File(System.getProperty("user.dir") + "//testdata//" +fileName);
 		XSSFWorkbook xssfWorkbook = null;
 		XSSFSheet xssfSheet;
 		List<User> userList = null;

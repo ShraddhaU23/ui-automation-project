@@ -11,7 +11,7 @@ import com.opencsv.exceptions.CsvValidationException;
 public class CSVReaderUtility {
 
 	public static void main(String[] args)  {
-		File file = new File(System.getProperty("user.dir") + "\\testdata\\logindata.csv");
+		File file = new File(System.getProperty("user.dir") + "//testdata//logindata.csv");
 		FileReader fileReader=null;
 		String[] line;
 		try {
