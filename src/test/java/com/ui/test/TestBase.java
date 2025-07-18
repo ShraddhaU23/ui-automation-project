@@ -27,7 +27,7 @@ public class TestBase {
 	public void setUp(
 			@Optional("chrome")String browser,
 			@Optional("false")boolean isLambdaTest, 
-			@Optional("true")boolean isHeadless, ITestResult result) throws MalformedURLException {
+			@Optional("false")boolean isHeadless, ITestResult result) throws MalformedURLException {
 		this.isLambdaTest= isLambdaTest;
 		WebDriver lambdaDriver;
 		if(isLambdaTest) {
@@ -52,7 +52,7 @@ public class TestBase {
 			LambdaTestUtility.quitSession();
 		}
 		else {
-		homePage.quit();
+			BrowserUtility.quit();
 	}
 }
 }

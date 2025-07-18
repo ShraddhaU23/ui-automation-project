@@ -1,5 +1,6 @@
 package com.utility;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -130,8 +131,19 @@ public abstract class BrowserUtility {
 		return path;
 
 	}
-	
-	public void quit() {
-		driver.get().quit();
+
+	public static void quit() {
+		System.out.println("Tear down the browser");
+		if (driver.get() != null) {
+			try {
+				driver.get().quit();
+			} catch (Exception e) {
+				System.err.println("Error during driver quit: " + e.getMessage());
+			} finally {
+				driver.remove();
+			}
+
+		}
 	}
+
 }
